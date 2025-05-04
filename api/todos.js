@@ -10,7 +10,7 @@ const pool = new Pool({
 });
 
 // GET all todos
-app.get('/', async (req, res) => {
+app.get('/api/todos', async (req, res) => {
   try {
     const { rows } = await pool.query('SELECT * FROM todos ORDER BY id ASC');
     res.json(rows);
@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
 });
 
 // POST a new todo
-app.post('/', async (req, res) => {
+app.post('/api/todos', async (req, res) => {
   try {
     console.log('Received POST request with body:', req.body);
     const { task } = req.body;
@@ -42,7 +42,7 @@ app.post('/', async (req, res) => {
 });
 
 // DELETE a todo
-app.delete('/', async (req, res) => {
+app.delete('/api/todos', async (req, res) => {
   try {
     const { id } = req.query;
     await pool.query('DELETE FROM todos WHERE id = $1', [id]);

@@ -18,5 +18,9 @@
     "express": "^5.1.0",
     "mongoose": "^8.14.1",
     "pg": "^8.15.6"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "vercel": "^41.7.0"
   }
 }
