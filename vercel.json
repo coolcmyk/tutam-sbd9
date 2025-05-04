@@ -1,19 +1,33 @@
 {
   "version": 2,
+  "buildCommand": "cd FE && npm install && npm run build",
+  "outputDirectory": "FE/dist",
   "builds": [
     {
-      "src": "client/package.json",
+      "src": "FE/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": { 
+        "distDir": "dist",
+        "buildCommand": "npm run build" 
+      }
     },
     {
-      "src": "api/**/*.js",
+      "src": "BE/api/**/*.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1.js" },
-    { "src": "/(.*\\.js|.*\\.css|.*\\.png|.*\\.svg|.*\\.ico)", "dest": "/client/dist/$1" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/BE/api/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/FE/dist/$1"
+    }
   ]
 }
 

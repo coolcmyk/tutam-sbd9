@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-anime text-gray-100;
+  }
+
+  h1 {
+    @apply text-3xl font-bold mb-4 text-sakura-400;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold mb-3 text-sakura-300;
+  }
+
+  h3 {
+    @apply text-xl font-medium mb-2 text-sakura-200;
+  }
+}
+
+@layer components {
+  .anime-button {
+    @apply px-4 py-2 bg-sakura-600 text-white rounded-lg
+      hover:bg-sakura-500 active:bg-sakura-700 
+      transform transition-all duration-200 hover:scale-105
+      focus:outline-none focus:ring-2 focus:ring-sakura-400 focus:ring-opacity-50
+      shadow-lg hover:shadow-xl;
+  }
+
+  .anime-input {
+    @apply px-4 py-2 bg-night-700 border-2 border-night-600 rounded-lg
+      focus:outline-none focus:ring-2 focus:ring-sakura-500 focus:border-sakura-500
+      text-white placeholder-night-400 w-full transition-all duration-200;
+  }
+
+  .todo-card {
+    @apply bg-gradient-to-r from-night-700 to-night-800 
+      p-4 rounded-lg border-l-4 border-sakura-500
+      shadow-lg hover:shadow-xl transition-all duration-200
+      hover:translate-y-[-2px];
+  }
+
+  .container-anime {
+    @apply max-w-4xl mx-auto p-6 bg-night-800/80 rounded-xl shadow-2xl 
+      backdrop-blur-sm border border-night-600;
+  }
+
+  .section-anime {
+    @apply mb-8 p-4 rounded-lg bg-night-700/50;
+  }
+}
+
+/* Base styles */
+:root {
+  font-family: "Nunito", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #ff5cab;
+  text-decoration: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #ff85c6;
+  text-shadow: 0 0 8px rgba(255, 92, 171, 0.5);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  border-color: #ff5cab;
+  background-color: #2a2a2a;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(255, 92, 171, 0.5);
+}
+
+/* Remove light mode styles since this is an anime-themed dark app */
