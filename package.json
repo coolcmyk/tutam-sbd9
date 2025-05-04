@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:api": "vercel dev",
+    "dev:client": "cd client && vite",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
+    "build": "cd client && vite build",
+    "preview": "cd client && vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0",
-    "mongoose": "^8.14.1"
+    "mongoose": "^8.14.1",
+    "pg": "^8.15.6"
   }
 }
